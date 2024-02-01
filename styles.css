@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary: #0052d4;
+    --midtone: #65c7f7;
+    --highlight: #9cecfb;
+    --accent: #387ded;
+    
+    --max-width: 500px;
+    --inline-offset: 2rem;
+}
+
+body {
+    background: var(--highlight);
+    background: linear-gradient(to right, var(--highlight) 0, var(--midtone) 10%, var(--primary) 100%);
+    min-height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+}
+
+.intro {
+    width: min(var(--max-width), calc(100% - (var(--inline-offset)  * 2)));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem 0;
+
+
+    .header {
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 1px 1px 4px var(--primary);
+
+        h1 {
+            font-size: min(3em, 15vw);
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: min(1em, 5vw);
+            font-weight: 400;
+        }
+    }
+
+    .categories {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+
+        .category {
+            background-color: var(--accent);
+            box-shadow: 2px 2px 8px var(--primary);
+            height: 8rem;
+
+            display: flex;
+            align-items: center;
+            padding: 0 1.5rem;
+            border-radius: 1rem;
+
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 600;
+
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                background-color: #3f81eb;
+            }
+        }
+    }
+}
+
+.loader {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .progress {
+        width: min(var(--max-width), calc(100% - (var(--inline-offset)  * 2)));
+        height: 3rem;
+        border: 2px solid white;
+        position: relative;
+        border-radius: 2rem;
+        overflow: hidden;
+        color: white;
+
+        .bar {
+            position: absolute;
+            height: 100%;
+            background-color: var(--accent);
+            animation: load 11s linear forwards;
+        }
+
+        span {
+            position: absolute;
+            z-index: 2;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+@keyframes load {
+    from { width: 0% }
+    to { width: 100% }
+}
+
+.quiz {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    .progress {
+        width: min(var(--max-width), calc(100% - (var(--inline-offset)  * 2)));
+        border: 2px solid white;
+        height: 3rem;
+        border-radius: 2rem;
+        overflow: hidden;
+
+        display: flex;
+        position: relative;
+
+        & > * {
+            flex: 1;
+        }
+
+        .medium {
+            border-inline: 2px solid white;
+        }
+
+        .level {
+            position: absolute;
+            height: 100%;
+            background-color: rgb(157, 157, 157);
+            z-index: -1;
+            transition: 0.3s;
+        }
+
+        .score {
+            position: absolute;
+            height: 100%;
+            background-image: linear-gradient(to right, var(--accent), var(--midtone), var(--highlight));
+            z-index: -1;
+            transition: 0.3s;
+        }
+    }
+
+    .quizForm {
+        width: min(var(--max-width), calc(100% - (var(--inline-offset)  * 2)));
+        padding: 3rem 2rem;
+        background-color: var(--accent);
+        box-shadow: 2px 2px 8px var(--primary);
+        border-radius: 2rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .question {
+            color: white;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            button {
+                background-color: #8cb1ed;
+                border: none;
+                padding: 0.5rem 0;
+                cursor: pointer;
+                border-radius: 0.5rem;
+
+                &:hover {
+                    background-color: #7fadf7;
+                }
+            }
+        }
+    }
+}
+
+.game-over {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    gap: 0.5rem;
+
+    h2 {
+        font-size: 4rem;
+    }
+
+    h3 {
+        font-size:2rem;
+        font-weight: 600;
+    }
+
+    button {
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border-radius: 1rem;
+        background-color: var(--accent);
+        color: white;
+        box-shadow: 2px 2px 4px var(--primary);
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Yummy Fran Palomares">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <section class="intro">
+        <div class="header">
+            <h1>Quiz App</h1>
+            <h2>Webdev Project</h2>
+        </div>
+        <div class="categories"></div>
+    </section>
+    <section class="loader">
+        <div class="progress">
+            <div class="bar"></div>
+            <span>Loading Questions...</span>
+        </div>
+    </section>
+    <section class="quiz">
+        <div class="progress scorer">
+            <div class="level"></div>
+            <div class="score"></div>
+            <div class="easy"></div>
+            <div class="medium"></div>
+            <div class="hard"></div>
+        </div>
+        <div class="quizForm">
+            <div class="question"></div>
+            <div class="options"></div>
+        </div>
+    </section>
+    <section class="game-over">
+        <h2>Game Over</h2>
+        <h3 class="final-score"></h3>
+        <button onclick="init()">Restart</button>
+    </section>
+</body>
+</html>
